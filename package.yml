@@ -1,0 +1,41 @@
+Transform: AWS::Serverless-2016-10-31
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: sns-slack-publish
+    Description: Publish AWS SNS messages to Slack with simplified Template
+    Author: sufiyanpk7 fouzankv
+    SpdxLicenseId: MIT
+    LicenseUrl: s3://aws-sam-cli-managed-default-samclisourcebucket-16wf7vyp1qakz/5a8bc6854b6eb95234145987aa061e70
+    ReadmeUrl: s3://aws-sam-cli-managed-default-samclisourcebucket-16wf7vyp1qakz/313ffe2b8128880383a0743428526061
+    SemanticVersion: 0.1.3
+    SourceCodeUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted
+Parameters:
+  SlackUrl:
+    Type: String
+  TopicArn:
+    Type: String
+  ClentName:
+    Type: String
+    Default: clientName
+  
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName:
+        Fn::Sub: ${AWS::StackName}
+      Runtime: nodejs16.x
+      Handler: post.handler
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-16wf7vyp1qakz/0989e1ed87de3edc91af37cc619b1d40
+      Environment:
+        Variables:
+          URL:
+            Ref: SlackUrl
+          CLIENT:
+            Ref: ClentName
+      Events:
+        Message:
+          Type: SNS
+          Properties:
+            Topic:
+              Ref: TopicArn
