@@ -7,7 +7,7 @@ Metadata:
     SpdxLicenseId: MIT
     LicenseUrl: s3://aws-sam-cli-managed-default-samclisourcebucket-16wf7vyp1qakz/5a8bc6854b6eb95234145987aa061e70
     ReadmeUrl: s3://aws-sam-cli-managed-default-samclisourcebucket-16wf7vyp1qakz/313ffe2b8128880383a0743428526061
-    SemanticVersion: 0.1.3
+    SemanticVersion: 0.1.4
     SourceCodeUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted
 Parameters:
   SlackUrl:
