@@ -1,4 +1,4 @@
-const formatDateTime = require("./src/date_formatter");
+const { formatDateTime, todayDateTime } = require("./src/date_formatter");
 
 const buildBlockAlertMessage = (message) => {
   if (typeof String.prototype.replaceAll === "undefined") {
@@ -52,17 +52,11 @@ const buildBlockAlertMessage = (message) => {
         fields: [
           {
             type: "mrkdwn",
-            text:
-              "*Date:*\n" +
-              formatDateTime(messageObject.AlarmConfigurationUpdatedTimestamp)
-                .date,
+            text: "*Date:*\n" + todayDateTime.date,
           },
           {
             type: "mrkdwn",
-            text:
-              "*Time:*\n" +
-              formatDateTime(messageObject.AlarmConfigurationUpdatedTimestamp)
-                .time,
+            text: "*Time:*\n" + todayDateTime.time,
           },
         ],
       },
@@ -92,7 +86,9 @@ const buildBlockAlertMessage = (message) => {
         fields: [
           {
             type: "mrkdwn",
-            text: "*StateChangeTime:*\n" + messageObject.StateChangeTime,
+            text:
+              "*StateChangeTime:*\n" +
+              formatDateTime(messageObject.StateChangeTime).time,
           },
 
           {

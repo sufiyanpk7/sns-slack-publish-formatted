@@ -8,4 +8,8 @@ const formatDateTime = (dateString) => {
   return { date: date, time: time };
 };
 
-module.exports = formatDateTime;
+exports.formatDateTime = formatDateTime;
+exports.todayDateTime = {
+  date: new Date().toLocaleDateString(),
+  time: new Date().toLocaleTimeString(),
+};
