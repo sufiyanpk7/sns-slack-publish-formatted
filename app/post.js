@@ -3,7 +3,7 @@ const url = require("url");
 
 const parsed = url.parse(process.env.URL);
 
-function postToSlack(message, callback) {
+const postToSlack = (message, callback) => {
   var alertMessage = BuildBlockAlertMessage(message);
   const postData = JSON.stringify(alertMessage);
 
@@ -39,7 +39,7 @@ function postToSlack(message, callback) {
   // Write data to request body
   req.write(postData);
   req.end();
-}
+};
 
 function sendMessage(record, callback) {
   if (!record || !record.Sns || !record.Sns.Message) {
@@ -78,7 +78,7 @@ if (process.env.TEST) {
 }
 
 const formatDateTime = (dateString) => {
-  const options = {   day: "numeric", month: "numeric",year: "numeric"};
+  const options = { day: "numeric", month: "numeric", year: "numeric" };
   var date = new Date(dateString).toLocaleString(undefined, options);
   var hr = new Date(dateString).getUTCHours();
   var min = new Date(dateString).getUTCMinutes();
@@ -139,21 +139,13 @@ const BuildBlockAlertMessage = (message) => {
         fields: [
           {
             type: "mrkdwn",
-            text:
-              "*Date:*\n" +
-              formatDateTime(messageObject.AlarmConfigurationUpdatedTimestamp)
-                .date,
+            text: "*Date:*\n" + new Date().toLocaleDateString(),
           },
           {
             type: "mrkdwn",
-            text:
-              "*Time:*\n" +
-              formatDateTime(messageObject.AlarmConfigurationUpdatedTimestamp)
-                .time,
+            text: "*Time:*\n" + new Date().toLocaleTimeString(),
           },
-     
         ],
-        
       },
       {
         type: "header",
@@ -161,7 +153,6 @@ const BuildBlockAlertMessage = (message) => {
           type: "plain_text",
           text: "State",
         },
-
       },
       {
         type: "section",
@@ -182,7 +173,9 @@ const BuildBlockAlertMessage = (message) => {
         fields: [
           {
             type: "mrkdwn",
-            text: "*StateChangeTime:*\n" + messageObject.StateChangeTime,
+            text:
+              "*StateChangeTime:*\n" +
+              formatDateTime(messageObject.StateChangeTime).time,
           },
 
           {
@@ -198,8 +191,6 @@ const BuildBlockAlertMessage = (message) => {
             type: "mrkdwn",
             text: "*AlarmArn:*\n" + messageObject.AlarmArn,
           },
-
-          
         ],
       },
       {
@@ -261,7 +252,7 @@ const BuildBlockAlertMessage = (message) => {
           },
         ],
       },
-      
+
       {
         type: "header",
         text: {
@@ -292,7 +283,9 @@ const BuildBlockAlertMessage = (message) => {
           },
           {
             type: "mrkdwn",
-            text: "*EvaluationPeriods:*\n" + messageObject.Trigger.EvaluationPeriods,
+            text:
+              "*EvaluationPeriods:*\n" +
+              messageObject.Trigger.EvaluationPeriods,
           },
         ],
       },
@@ -301,11 +294,15 @@ const BuildBlockAlertMessage = (message) => {
         fields: [
           {
             type: "mrkdwn",
-            text: "*DatapointsToAlarm:*\n" + messageObject.Trigger.DatapointsToAlarm,
+            text:
+              "*DatapointsToAlarm:*\n" +
+              messageObject.Trigger.DatapointsToAlarm,
           },
           {
             type: "mrkdwn",
-            text: "*ComparisonOperator:*\n" + messageObject.Trigger.ComparisonOperator,
+            text:
+              "*ComparisonOperator:*\n" +
+              messageObject.Trigger.ComparisonOperator,
           },
         ],
       },
@@ -318,7 +315,8 @@ const BuildBlockAlertMessage = (message) => {
           },
           {
             type: "mrkdwn",
-            text: "*TreatMissingData:*\n" + messageObject.Trigger.TreatMissingData,
+            text:
+              "*TreatMissingData:*\n" + messageObject.Trigger.TreatMissingData,
           },
         ],
       },
@@ -327,15 +325,16 @@ const BuildBlockAlertMessage = (message) => {
         fields: [
           {
             type: "mrkdwn",
-            text: "*EvaluateLowSampleCountPercentile:*\n" + messageObject.Trigger.EvaluateLowSampleCountPercentile,
+            text:
+              "*EvaluateLowSampleCountPercentile:*\n" +
+              messageObject.Trigger.EvaluateLowSampleCountPercentile,
           },
-
         ],
       },
-     
+
       {
-			"type": "divider"
-		},
+        type: "divider",
+      },
     ],
   };
 
