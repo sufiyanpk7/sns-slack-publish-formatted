@@ -119,12 +119,7 @@ const BuildBlockAlertMessage = (message) => {
           {
             type: "mrkdwn",
             text: "*AlarmName*\n" + messageObject.AlarmName,
-          },
-
-          {
-            type: "mrkdwn",
-            text: "*AlarmDescription:*\n" + messageObject.AlarmDescription,
-          },
+          }
         ],
       },
       {
@@ -173,94 +168,11 @@ const BuildBlockAlertMessage = (message) => {
         fields: [
           {
             type: "mrkdwn",
-            text:
-              "*StateChangeTime:*\n" +
-              formatDateTime(messageObject.StateChangeTime).time,
-          },
-
-          {
-            type: "mrkdwn",
-            text: "*Region:*\n" + messageObject.Region,
-          },
-        ],
-      },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text: "*AlarmArn:*\n" + messageObject.AlarmArn,
-          },
-        ],
-      },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
             text: "*OldStateValue:*\n" + messageObject.OldStateValue,
-          },
-          {
-            type: "mrkdwn",
-            text: "*OKActions:*\n" + messageObject.OKActions,
-          },
+          }
         ],
       },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text: "*AlarmActions:*\n" + messageObject.AlarmActions,
-          },
-          {
-            type: "mrkdwn",
-            text: "*InsufficientDataActions:*\n" + messageObject.OKActions,
-          },
-        ],
-      },
-      {
-        type: "header",
-        text: {
-          type: "plain_text",
-          text: "Trigger",
-        },
-      },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text: "*MetricName:*\n" + messageObject.Trigger.MetricName,
-          },
-          {
-            type: "mrkdwn",
-            text: "*Namespace:*\n" + messageObject.Trigger.Namespace,
-          },
-        ],
-      },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text: "*StatisticType:*\n" + messageObject.Trigger.StatisticType,
-          },
-          {
-            type: "mrkdwn",
-            text: "*Unit:*\n" + messageObject.Trigger.Unit,
-          },
-        ],
-      },
-
-      {
-        type: "header",
-        text: {
-          type: "plain_text",
-          text: "Dimensions",
-        },
-      },
-
+      
       {
         type: "section",
         fields: [
@@ -274,67 +186,16 @@ const BuildBlockAlertMessage = (message) => {
           },
         ],
       },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text: "*Period:*\n" + messageObject.Trigger.Period,
-          },
-          {
-            type: "mrkdwn",
-            text:
-              "*EvaluationPeriods:*\n" +
-              messageObject.Trigger.EvaluationPeriods,
-          },
-        ],
-      },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text:
-              "*DatapointsToAlarm:*\n" +
-              messageObject.Trigger.DatapointsToAlarm,
-          },
-          {
-            type: "mrkdwn",
-            text:
-              "*ComparisonOperator:*\n" +
-              messageObject.Trigger.ComparisonOperator,
-          },
-        ],
-      },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text: "*Threshold:*\n" + messageObject.Trigger.Threshold,
-          },
-          {
-            type: "mrkdwn",
-            text:
-              "*TreatMissingData:*\n" + messageObject.Trigger.TreatMissingData,
-          },
-        ],
-      },
-      {
-        type: "section",
-        fields: [
-          {
-            type: "mrkdwn",
-            text:
-              "*EvaluateLowSampleCountPercentile:*\n" +
-              messageObject.Trigger.EvaluateLowSampleCountPercentile,
-          },
-        ],
-      },
 
       {
-        type: "divider",
+        "type": "divider"
       },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "divider"
+      }
     ],
   };
 

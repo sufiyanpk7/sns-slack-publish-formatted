@@ -1,14 +1,14 @@
 Transform: AWS::Serverless-2016-10-31
 Metadata:
   AWS::ServerlessRepo::Application:
-    Name: sns-slack-publish
+    Name: sns-slack-publish-abstract
     Description: Publish AWS SNS messages to Slack with simplified Template
     Author: sufiyanpk7 fouzankv
     SpdxLicenseId: MIT
     LicenseUrl: s3://aws-sam-cli-managed-default-samclisourcebucket-16wf7vyp1qakz/5a8bc6854b6eb95234145987aa061e70
     ReadmeUrl: s3://aws-sam-cli-managed-default-samclisourcebucket-16wf7vyp1qakz/313ffe2b8128880383a0743428526061
-    SemanticVersion: 0.1.4
-    SourceCodeUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted
+    SemanticVersion: 0.1.1
+    SourceCodeUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted/tree/feature/abstractTemplate
 Parameters:
   SlackUrl:
     Type: String

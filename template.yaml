@@ -1,16 +1,16 @@
 Transform: AWS::Serverless-2016-10-31
 Metadata:
   AWS::ServerlessRepo::Application:
-    Name: sns-slack-publish
-    Description: Publish AWS SNS messages to Slack with simplified Template
+    Name: sns-slack-publish-abstract
+    Description: Publish AWS SNS messages to Slack with abstracted Template
     Author: sufiyanpk7 fouzankv
     SpdxLicenseId: MIT
     LicenseUrl: ./LICENSE
     ReadmeUrl: ./README.md
     Labels: [ 'sns', 'slack', 'nodejs', 'cloudwatch']
-    HomePageUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted
-    SemanticVersion: 0.1.4
-    SourceCodeUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted
+    HomePageUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted/tree/feature/abstractTemplate
+    SemanticVersion: 0.1.1
+    SourceCodeUrl: https://github.com/sufiyanpk7/sns-slack-publish-formatted/tree/feature/abstractTemplate
 
 Parameters:
     SlackUrl:
